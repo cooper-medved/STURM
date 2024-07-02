@@ -1,0 +1,12 @@
+FROM ubuntu:20.04
+
+# Update package list and install required packages
+RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
+RUN apt-get install -y openjdk-8-jre-headless python
+
+# Create directory
+RUN mkdir -p /home/cc
+
+# Add storm directory and configure.sh script
+ADD storm /home/cc/storm
+ADD configure.sh /
